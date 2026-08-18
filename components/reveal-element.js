@@ -33,11 +33,12 @@ class RevealElement extends HTMLElement {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
           this.classList.add('visible');
+          // console.log(`IntersectionObserver for `, entry);
         }
       });
     }, {
       rootMargin: '0px 0px -10% 0px',
-      threshold: 0.1
+      threshold: 0.1,
     });
     
     observer.observe(this);
@@ -50,14 +51,18 @@ customElements.define('reveal-element', RevealElement);
 class KeyCard extends HTMLElement {
   constructor() {
     super();
-    this.innerHTML = `
-      <div class="track-card">
+
+  }
+  connectedCallback() {
+    const div = document.createElement(`div`);
+    div.setAttribute(`class`,`track-card`);
+    div.innerHTML = `
             <div class="track-card-image">
-              <img src="assets/understand.jpg" alt="Understanding the Climate Change Act" loading="lazy">
-              <div class="track-card-color-bar bg-track-understand"></div>
+              <img src="assets/understand.jpg" loading="lazy">
+              <div class="track-card-color-bar bg-track"></div>
             </div>
             <div class="track-card-content">
-              <p class="text-xs font-semibold uppercase tracking-wider text-track-understand">
+              <p class="text-xs font-semibold uppercase tracking-wider text-track">
                 <slot name="for">
                 For municipalities & districts
                 </slot>
@@ -70,8 +75,8 @@ class KeyCard extends HTMLElement {
                 Get oriented with the big picture: what the Climate Change Act requires of districts and municipalities, and how CCASP provides a structured, step-by-step approach to implementation at sub-national level.
                 </slot>
               </p>
-              <div class="mt-5 rounded-xl p-4 bg-track-understand-soft">
-                <p class="text-xs font-semibold uppercase tracking-wider text-muted-foreground">
+              <div class="mt-5 rounded-xl p-4 bg-track-soft key-takeaway">
+                <p class="text-xs uppercase tracking-wider text-muted-foreground">
                   Key takeaway
                 </p>
                 <p class="mt-1.5 text-sm"><slot name="takeaway">
@@ -79,13 +84,31 @@ class KeyCard extends HTMLElement {
                 </slot>
                 </p>
               </div>
-              <a href="understand.html" class="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-track-understand hover:underline">
+              <a href="understand.html" class="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-track explore">
                 Explore this pathway
-                <span class="transition-transform">→</span>
+                <span class="arrow">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" 
+                    fill="none" stroke="currentColor" stroke-width="2" 
+                    stroke-linecap="round" stroke-linejoin="round" 
+                    class="transition-transform duration-300 group-hover:translate-x-1 motion-reduce:transform-none" 
+                    aria-hidden="true" 
+                    style="transform: translateY(5px);"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg>
+                </span>
               </a>
-            </div>
-          </div>`;
+            </div>`;
+      div.querySelector(`img`).setAttribute(`src`, this.getAttribute(`img`));
+      div.querySelector(`a`).setAttribute(`href`, this.getAttribute(`href`));
+      this.querySelectorAll("[slot]").forEach(s=>{
+       // console.log(`KeyCard has child element: `, s);
+       const slot = s.getAttribute(`slot`);
+       const res = div.querySelector(`slot[name="${slot}"]`);
+       if (!res) {
+        console.error(`Failed to find slot "${slot}" in KeyCard`);
+       } else {
+        res.parentElement.replaceChild(s, res);
+       }
+      });
+    this.appendChild(div);
   }
-  connectedCallback() {}
 }
 customElements.define(`ccasp-keycard`, KeyCard);

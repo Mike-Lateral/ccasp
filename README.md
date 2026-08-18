@@ -87,4 +87,3 @@ Simply copy all files to any static web hosting:
 ## License
 
 Same as the original project - open source and free to use for climate action initiatives.
-# ccasp

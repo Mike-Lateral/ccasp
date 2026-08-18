@@ -51,22 +51,32 @@ body {
   padding: 0 1rem;
 }
 
+
 /* Utility classes */
-.text-track-understand { color: var(--track-understand); }
-.bg-track-understand { background-color: var(--track-understand); }
-.bg-track-understand-soft { background-color: var(--track-understand-soft); }
 
-.text-track-tools { color: var(--track-tools); }
-.bg-track-tools { background-color: var(--track-tools); }
-.bg-track-tools-soft { background-color: var(--track-tools-soft); }
-
-.text-track-implement { color: var(--track-implement); }
-.bg-track-implement { background-color: var(--track-implement); }
-.bg-track-implement-soft { background-color: var(--track-implement-soft); }
-
-.text-track-training { color: var(--track-training); }
-.bg-track-training { background-color: var(--track-training); }
-.bg-track-training-soft { background-color: var(--track-training-soft); }
+.track-understand {
+  --track-color: var(--track-understand);
+  --track-bg: var(--track-understand);
+  --track-bg-soft: var(--track-understand-soft);
+}
+.track-tools {
+  --track-color: var(--track-tools);
+  --track-bg: var(--track-tools);
+  --track-bg-soft: var(--track-tools-soft);
+}
+.track-implement {
+  --track-color: var(--track-implement);
+  --track-bg: var(--track-implement);
+  --track-bg-soft: var(--track-implement-soft);
+}
+.track-training{
+  --track-color: var(--track-training);
+  --track-bg: var(--track-training);
+  --track-bg-soft: var(--track-training-soft);
+}
+.text-track { color: var(--track-color); }
+.bg-track { background-color: var(--track-bg); }
+.bg-track-soft { background-color: var(--track-bg-soft); }
 
 /* Button styles */
 .btn {
@@ -103,6 +113,8 @@ body {
 
 .card:hover {
   transform: translateY(-4px);
+  box-shadow: 5px 5px 10px var(--track-color, red);
+  border: 20px solid red;
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -164,11 +176,12 @@ body {
   border: 1px solid var(--border);
   border-radius: calc(var(--radius) + 8px);
   overflow: hidden;
-  transition: transform 0.3s ease;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .track-card:hover {
   transform: translateY(-4px);
+  box-shadow: 2px 2px 8px var(--track-color);
 }
 
 .track-card-image {
@@ -206,6 +219,18 @@ body {
   width: 100%;
 }
 
+.track-card a.explore {
+  font-size: 1.1em;
+  font-weight: bold;
+  text-decoration: none;
+  &>span.arrow {
+    transition: margin-left 0.3s ease;
+  }
+  &:hover>span.arrow {
+    margin-left: 0.3em;
+  }
+}
+
 /* Reveal animation */
 .reveal {
   opacity: 0;
@@ -234,5 +259,20 @@ body {
   
   .section {
     padding: 2rem 0;
+  }
+}
+
+.key-takeaway {
+  padding: 0.3em 1em;
+  border-radius: 0.625em;
+  margin-bottom: 1em;
+
+  &>p:first-child {
+    font-weight: bold;
+    font-size: 0.8em;
+    margin-bottom: 0;
+  }
+  &>p:nth-child(2) {
+    margin-top:0.6em;
   }
 }
