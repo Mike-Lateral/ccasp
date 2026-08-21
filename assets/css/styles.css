@@ -113,8 +113,8 @@ body {
 
 .card:hover {
   transform: translateY(-4px);
-  box-shadow: 5px 5px 10px var(--track-color, red);
-  border: 20px solid red;
+  box-shadow: 2px 2px 5px var(--track-color, red);
+  border: 5px solid red;
 }
 
 @media (prefers-reduced-motion: reduce) {
