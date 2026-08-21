@@ -109,6 +109,7 @@ body {
   border-radius: var(--radius);
   overflow: hidden;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
+  padding: 5px;
 }
 
 .card:hover {
