@@ -63,9 +63,7 @@ class KeyCard extends HTMLElement {
             </div>
             <div class="track-card-content">
               <p class="text-xs font-semibold uppercase tracking-wider text-track">
-                <slot name="for">
-                For municipalities & districts
-                </slot>
+                <slot name="for"></slot>
               </p>
               <h3 class="text-xl font-bold leading-snug mt-3"><slot name="title">
                 Understand the Climate Change Act & Planning Framework
