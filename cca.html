@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Climate Change Act — CCASP</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2/dist/tailwind.min.css">
+  <style>
+    :root {
+      --primary: oklch(0.47 0.075 190);
+      --primary-soft: oklch(0.955 0.022 190);
+      --border: oklch(0.9 0.012 95);
+      --bg: oklch(0.985 0.006 95);
+      --fg: oklch(0.23 0.02 160);
+    }
+    body {
+      margin: 0; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: var(--bg); color: var(--fg); line-height: 1.6;
+    }
+    .hero {
+      position: relative; overflow: hidden;
+      background-image: url('assets/understand.jpg');
+      background-size: cover; background-position: center;
+      background-color: var(--primary);
+      color: white;
+    }
+    .hero::after {
+      content: ''; position: absolute; inset: 0;
+      background: linear-gradient(to right, rgba(0,0,0,.6), transparent);
+    }
+    .hero-inner {
+      position: relative; z-index: 1;
+      max-width: 1200px; margin: 0 auto; padding: 6rem 2rem 4rem;
+    }
+    .hero h1 { font-size: 2.5rem; font-weight: 700; margin: 0 0 1rem; }
+    .hero p { font-size: 1.1rem; max-width: 70ch; opacity: .9; }
+    .section { max-width: 1200px; margin: 0 auto; padding: 2rem 2rem; }
+    .section h2 { font-size: 1.5rem; margin: 0 0 1rem; }
+    .section p { max-width: 70ch; }
+    .nav-up {
+      position: fixed; top: 1rem; right: 1rem;
+      background: var(--primary); color: white;
+      padding: .5rem 1rem; border-radius: 9999px;
+      text-decoration: none; font-weight: 600;
+    }
+    .footer {
+      text-align: center; padding: 2rem; font-size: .85rem;
+      border-top: 1px solid var(--border); color: #777;
+    }
+    a {
+      color:var(--primary);
+    }
+
+  </style>
+</head>
+<body>
+
+  <a href="index.html" class="nav-up">← Back to CCASP</a>
+
+  <section class="hero">
+    <div class="hero-inner">
+      <h1>Climate Change Act</h1>
+      <p>Get oriented with the big picture: what the Climate Change Act requires of districts and municipalities, and how CCASP provides a structured, step-by-step approach to implementation at sub-national level.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <h2>The Climate Change Act</h2>
+      <p>
+      The South African government promulgated the Climate Change Act (Act 22) in 2024. 
+      </p>
+      <br>
+      <p>
+        The objectives of the Act are to:
+          <ul style="max-width: 70ch; padding-left: 1.5em;">
+              <li>Bring government, business and communities together to tackle climate change in a coordinated way</li>
+              <li>Help the country prepare for and cope with the already unavoidable climate impacts by making communities, economy and environment more resilient</li>
+              <li>Support South Africa in making its fair share contribution to reducing greenhouse gas emissions and limiting global warming</li>
+              <li>Manage the shift to a low-carbon economy in a way that is just and fair, taking into account the country's circumstances</li>
+              <li>Meet South Africa's commitments under international climate agreements</li>
+              <li>Protect the planet for current and future generations</li>
+          </ul>
+      </p>
+      <br>
+      <p>
+        <p>Under the Act, provincial governments and metropolitan and district municipalities must develop a climate change needs and response assessment within one year of publication of the National Adaptation Strategy and Plan. The needs and response assessment presents details on the impacts of climate change, including risks and vulnerabilities, and identifies measures to manage and implement the climate change response.</p>
+        <br>
+        <p>Within two years after publishing the assessment, a climate change response implementation plan must be developed. This plan is based on the needs and response assessment, and describes adaptation and mitigation measures or programmes to be implemented, which are aligned with the constitutional mandate of the province, or the metropolitan or district municipality.</p>
+        <br>
+        <p>A guidance document and spreadsheet is available to help support sub-national government institutions develop these documents. (Link: CCNRA tool and framework, CCIP tool and framework).</p>
+        <br>
+        <p>More information on the Act, as well as the roles and responsibilities of sub-national governments can be found in this presentation (Link: Overview of the Climate Change Act.ppt (or pdf??)).</p>
+        <br>
+        <p>The <a href="https://www.dffe.gov.za/sites/default/files/legislations/cca_assented_g50966vol709n5050.pdf">full Act is available for download here.</a></p>
+      </p>
+    </section>
+  
+
+  <footer class="footer">
+    <p>Developed by <a href="https://gondwanagroup.co.za/" style="color:var(--primary);">Gondwana</a> with funding support from <a href="https://ukpact.co.uk" style="color:var(--primary);">UK PACT</a> &copy;2026</p>
+  </footer>
+
+</body>
+</html>
