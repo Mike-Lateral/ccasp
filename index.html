@@ -18,6 +18,34 @@
     </div>
   </header-->
 
+  <!-- Top-right vertical menu -->
+  <nav id="vertical-menu" class="vertical-menu">
+    <button id="menu-toggle" class="vertical-menu-toggle" aria-label="Open menu" aria-expanded="false">
+      <span class="bar"></span>
+      <span class="bar"></span>
+      <span class="bar"></span>
+    </button>
+
+    <div id="menu-panel" class="vertical-menu-panel" hidden>
+      <a href="https://ukpact2.lateral.co.za/ccasp/cca/" class="menu-link">
+        <span class="menu-icon">📘</span>
+        <span class="menu-label">Climate Change Act</span>
+      </a>
+      <a href="https://ukpact2.lateral.co.za/ccasp/ghg-inventories/" class="menu-link">
+        <span class="menu-icon">📊</span>
+        <span class="menu-label">GHG Inventories</span>
+      </a>
+      <a href="https://ukpact2.lateral.co.za/ccasp/mitigation-planning/" class="menu-link">
+        <span class="menu-icon">📋</span>
+        <span class="menu-label">Mitigation Planning</span>
+      </a>
+      <a href="https://ukpact2.lateral.co.za/ccasp/civil-society-involvement/" class="menu-link">
+        <span class="menu-icon">🤝</span>
+        <span class="menu-label">GEDSI &amp; Stakeholder Engagement</span>
+      </a>
+    </div>
+  </nav>  
+
   <!-- Hero Section -->
   <section class="hero section">
     <img src="assets/hero.jpg" alt="Wind turbines on rolling South African hills at golden hour" class="hero-image">
@@ -168,5 +196,43 @@ Together, these modules provide a structured, step-by-step approach to implement
 
   <!-- Web Components -->
   <script src="components/reveal-element.js"></script>
+  <script>
+    const menu = document.getElementById('vertical-menu');
+    const toggle = document.getElementById('menu-toggle');
+    const panel = document.getElementById('menu-panel');
+    const links = panel.querySelectorAll('.menu-link');
+
+    function openMenu() {
+      menu.classList.add('active');
+      toggle.setAttribute('aria-expanded', 'true');
+      //document.body.style.overflow = 'hidden';
+    }
+
+    function closeMenu() {
+      menu.classList.remove('active');
+      toggle.setAttribute('aria-expanded', 'false');
+      document.body.style.overflow = '';
+    }
+
+    toggle.addEventListener('click', () => {
+      const isOpen = menu.classList.contains('active');
+      isOpen ? closeMenu() : openMenu();
+    });
+
+    // Close on backdrop click
+    menu.addEventListener('click', (e) => {
+      if (e.target === menu) closeMenu();
+    });
+
+    // Close on link click (after navigation begins)
+    links.forEach(link => {
+      link.addEventListener('click', () => closeMenu());
+    });
+
+    // Close on Escape key
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && menu.classList.contains('active')) closeMenu();
+    });
+  </script>
 </body>
 </html>
