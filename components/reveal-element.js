@@ -82,6 +82,9 @@ class KeyCard extends HTMLElement {
                 </slot>
                 </p>
               </div>
+              </div>
+            </div>
+            <div class="card-bottom">
               <a href="understand.html" class="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-track explore">
                 Explore this guide
                 <span class="arrow">
@@ -93,7 +96,8 @@ class KeyCard extends HTMLElement {
                     style="transform: translateY(5px);"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg>
                 </span>
               </a>
-            </div>`;
+            </div>
+          </div>`;
       div.querySelector(`img`).setAttribute(`src`, this.getAttribute(`img`));
       div.querySelector(`a`).setAttribute(`href`, this.getAttribute(`href`));
       this.querySelectorAll("[slot]").forEach(s=>{
