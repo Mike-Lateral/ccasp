@@ -57,6 +57,7 @@ class KeyCard extends HTMLElement {
     const div = document.createElement(`div`);
     div.setAttribute(`class`,`track-card`);
     div.innerHTML = `
+      <a href="understand.html" class="inline-flex items-center gap-2 text-track top">
             <div class="track-card-image">
               <img src="assets/understand.jpg" loading="lazy">
               <div class="track-card-color-bar bg-track"></div>
@@ -97,7 +98,9 @@ class KeyCard extends HTMLElement {
                 </span>
               </a>
             </div>
-          </div>`;
+          </div>
+        </a>
+      `;
       div.querySelector(`img`).setAttribute(`src`, this.getAttribute(`img`));
       div.querySelector(`a`).setAttribute(`href`, this.getAttribute(`href`));
       this.querySelectorAll("[slot]").forEach(s=>{
