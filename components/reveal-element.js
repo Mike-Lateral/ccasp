@@ -48,11 +48,15 @@ class RevealElement extends HTMLElement {
 customElements.define('reveal-element', RevealElement);
 
 
+/**
+ * KeyCard is used on the HOME page to distinguish the routes/tracks that
+ * a user can take through the website.
+ */
 class KeyCard extends HTMLElement {
   constructor() {
     super();
-
   }
+
   connectedCallback() {
     const div = document.createElement(`div`);
     div.setAttribute(`class`,`track-card`);
@@ -112,3 +116,69 @@ class KeyCard extends HTMLElement {
   }
 }
 customElements.define(`ccasp-keycard`, KeyCard);
+
+const _trackDetails = {
+  understand: {
+    for: `For municipalities & districts`,
+    title: `Understand the Climate Change Act & Planning Framework`,
+    description: `Get oriented with the big picture: what the Climate Change Act requires of districts and municipalities, and how CCASP provides a structured, step-by-step approach to implementation at sub-national level.`,
+  },
+  tools: {
+    for: `For practitioners`,
+    title:`Leverage Our GHG Inventory & Assessment Tools`,
+    description: `Get hands-on with the practical instruments for tracking emissions and conducting needs assessments — templates, methodologies and workbooks you can use directly.`,
+  },
+  implement: {
+    for: `For stakeholders`,
+    title: `Develop & Implement Your Mitigation Response Plan`,
+    description: `Work through the core process of creating an effective mitigation plan — practical guidance for producing CCAMRIPs, engaging stakeholders and embedding GEDSI considerations.`,
+  },
+  training: {
+    for: `For learners & facilitators`,
+    title: `Explore Our Training Modules & Resources`,
+    description: `Go deeper with targeted training. CCASP offers structured modules, facilitator materials, case studies and a supporting resource library.`
+  }
+};
+
+class TrackHeader extends HTMLElement {
+  constructor() {
+    super();
+  }
+  connectedCallback() {
+    var track;
+    if (this.hasAttribute(`set`)) {
+      track = this.getAttribute(`set`);
+      window.localStorage.setItem(`ccasp-track`, track);
+    } else {
+      track = window.localStorage.getItem(`ccasp-track`);
+      if (!track) {
+        track = `understand`;
+      }
+    }    
+    const header = document.createElement(`header`);
+    header.setAttribute(`class`, "header bg-track-${track} text-primary-foreground");
+    header.innerHTML = `
+    <div class="container">
+      <a href="../index.html" class="inline-flex items-center gap-2 text-sm opacity-85 hover:opacity-100">
+        ← All pathways
+      </a>
+      <p class="mt-8 text-xs font-semibold uppercase tracking-wider opacity-80" data-id="for">
+        TRACK_FOR
+      </p>
+      <h1 class="mt-3 text-3xl md:text-5xl font-bold leading-tight" data-id="title">
+        TRACK_TITLE
+      </h1>
+      <p class="mt-5 max-w-2xl text-lg opacity-90" data-id="description">
+        TRACK_DESCRIPTION
+      </p>
+    </div>`;
+    const details = _trackDetails[track];
+    header.querySelector(`[data-id="for"]`).innerText = details.for;
+    header.querySelector(`[data-id="title"`).innerText = details.title;
+    header.querySelector(`[data-id="description"]`).innerText = details.description;
+    document.body.classList.add(`track-${track}`);
+
+    this.appendChild(header);    
+  }
+}
+customElements.define(`ccasp-trackheader`, TrackHeader);
