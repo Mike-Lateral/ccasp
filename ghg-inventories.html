@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GHG Inventories — CCASP</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2/dist/tailwind.min.css">
+  <style>
+    :root {
+      --primary: oklch(0.63 0.125 65);
+      --primary-soft: oklch(0.96 0.03 75);
+      --border: oklch(0.9 0.012 95);
+      --bg: oklch(0.985 0.006 95);
+      --fg: oklch(0.23 0.02 160);
+    }
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: var(--bg);
+      color: var(--fg);
+      line-height: 1.6;
+    }
+    .hero {
+      position: relative;
+      overflow: hidden;
+      background-image: url('assets/tools.jpg');
+      background-size: cover;
+      background-position: center;
+      background-color: var(--primary);
+      color: white;
+    }
+    .hero::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to right, rgba(0,0,0,.6), transparent);
+    }
+    .hero-inner {
+      position: relative;
+      z-index: 1;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 6rem 2rem 4rem;
+    }
+    .hero h1 { font-size: 2.5rem; font-weight: 700; margin: 0 0 1rem; }
+    .hero p { font-size: 1.1rem; max-width: 70ch; opacity: .9; }
+    .section { max-width: 1200px; margin: 0 auto; padding: 2rem 2rem; }
+    .section h2 { font-size: 1.5rem; margin: 0 0 1rem; }
+    .section h3 { font-size: 1.2rem; margin: 2rem 0 1rem; }
+    .section p { max-width: 70ch; }
+    .section ul, .section ol { max-width: 70ch; padding-left: 1.5em; }
+    .section li { margin-bottom: .5rem; }
+    .nav-up {
+      position: fixed;
+      top: 1rem;
+      right: 1rem;
+      background: var(--primary);
+      color: white;
+      padding: .5rem 1rem;
+      border-radius: 9999px;
+      text-decoration: none;
+      font-weight: 600;
+      z-index: 1000;      
+    }
+    .footer {
+      text-align: center;
+      padding: 2rem;
+      font-size: .85rem;
+      border-top: 1px solid var(--border);
+      color: #777;
+    }
+    /* Table */
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 1rem 0;
+      font-size: .95rem;
+    }
+    thead th, tbody td {
+      border: 1px solid var(--border);
+      padding: .75rem 1rem;
+      text-align: left;
+      vertical-align: top;
+    }
+    thead th {
+      background: var(--primary-soft);
+      font-weight: 600;
+      color: var(--fg);
+    }
+    tbody tr:nth-child(even) td {
+      background: var(--primary-soft);
+    }
+    .sector-label {
+      font-weight: 600;
+      color: var(--primary);
+    }
+    a {
+      color: var(--primary);
+      text-decoration: underline;
+    }
+    a:hover {
+      text-decoration: none;
+    }
+  </style>
+</head>
+<body>
+
+  <a href="index.html" class="nav-up">← Back to CCASP</a>
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="hero-inner">
+      <h1>GHG Inventories</h1>
+      <!--p>GHG inventories track emissions across key sectors to support climate policy and reporting. Get hands-on with the practical instruments for tracking emissions and conducting needs assessments — templates, methodologies and workbooks you can use directly.</p-->
+    </div>
+  </section>
+
+  <!-- What is a GHG inventory? -->
+  <section class="section">
+    <h2>What Is a GHG Inventory?</h2>
+    <p>A GHG inventory shows the amount of GHGs emitted in a defined area. The main GHGs are CO₂, CH₄ and N₂O.</p>
+    <p>South Africa's national GHG inventory provides an overall picture of the country's GHG emissions and removals across the energy, industry, agriculture, forestry and waste sectors (<a href="https://www.dffe.gov.za/ccaq_home">https://www.dffe.gov.za/ccaq_home</a>). The national inventory is important for tracking emissions and supporting national climate policies and reporting.</p>
+    <p>However, it does not provide the detailed, local-level information needed by provinces and municipalities to understand where emissions come from within their areas. Developing provincial and municipal GHG inventories is therefore encouraged to help identify local emission sources, set priorities, plan effective mitigation actions, track progress over time and support reporting.</p>
+    <p><a href="GHG inventory – introduction.pdf">GHG inventory – introduction</a></p>
+    <p>It also helps align local climate action with South Africa's national climate goals.</p>
+  </section>
+
+  <!-- Compiling a sub-national GHG inventory -->
+  <section class="section">
+    <h2>Compiling a Sub-National GHG Inventory</h2>
+    <p>GHG inventories for sub-national government are developed following the methodology described in the <a href="https://ghgprotocol.org/ghg-protocol-cities">Global Protocol for Community-Scale Greenhouse Gas Inventories</a> (often referred to as the GPC Guidelines)
+      (<a href="https://ghgprotocol.org/gpc-supplemental-guidance-forests-and-trees">supplemental guidance for Forests and trees</a>).
+      These guidelines provide a consistent and internationally recognised approach for estimating and reporting GHG emissions at the local level.
+    </p>
+    <p>An enhanced GHG inventory tool with data collection templates
+      (<a href="GHG inventory tool">GHG inventory tool</a>)
+      and a data collection guidance document
+      (<a href="Data collection guidance document">Data collection guidance document</a>)
+      have been developed to assist districts and municipalities in developing their own inventories.
+    </p>
+    <p>Further information and guidance are provided by GPC sector:</p>
+    <ul>
+      <li>Stationary energy</li>
+      <li>Transportation</li>
+      <li>Waste</li>
+      <li>Industrial processes and product use (IPPU)</li>
+      <li>Agriculture, Forestry and other land use (AFOLU)</li>
+    </ul>
+  </section>
+
+  <!-- Stationary energy -->
+  <section class="section">
+    <h2>Stationary Energy</h2>
+    <h3>What are Stationary Energy emissions?</h3>
+    <p>Stationary energy emissions are GHG emissions from the production and use of energy in fixed locations, rather than from transport
+      (<a href="GHG inventory – Stationary energy.pdf">GHG inventory – Stationary energy.pdf</a>).
+      Under the GPC, this includes the activities listed in the table below.
+    </p>
+    <p>Understanding these emissions helps districts and provinces identify where energy is being used and where opportunities exist to reduce emissions through energy efficiency, cleaner fuels and renewable energy.</p>
+
+    <table>
+      <thead>
+        <tr>
+          <th>GPC subcategory</th>
+          <th>What it includes</th>
+          <th>Examples of municipal activities / sources</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Residential buildings</td>
+          <td>Energy used in households</td>
+          <td>Electricity, gas, paraffin, coal, LPG and other fuels used in homes</td>
+        </tr>
+        <tr>
+          <td>Commercial and institutional buildings and facilities</td>
+          <td>Energy used in commercial and public buildings</td>
+          <td>Shops, offices, schools, hospitals, government buildings, street lighting and other public facilities</td>
+        </tr>
+        <tr>
+          <td>Manufacturing industries and construction</td>
+          <td>Energy used by industry and construction</td>
+          <td>Factories, industrial facilities, construction sites and fuel used for industrial processes</td>
+        </tr>
+        <tr>
+          <td>Energy industries</td>
+          <td>Energy production and use within the energy sector</td>
+          <td>Power stations, refineries and other energy-producing facilities</td>
+        </tr>
+        <tr>
+          <td>Agriculture, forestry and fishing activities</td>
+          <td>Energy used for these activities</td>
+          <td>Agricultural machinery and equipment, irrigation, forestry operations and fishing activities</td>
+        </tr>
+        <tr>
+          <td>Non-specified sources</td>
+          <td>Stationary energy sources that cannot be allocated to another category</td>
+          <td>Energy use where the type of facility or activity is not known</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <p>The activity data that is required to compile the Stationary energy GHG inventory include the amount of fuel consumed by activity and by fuel type, along with the amount of grid-energy consumed.
+      Guidance on how to complete the data collection templates for Stationary energy can be found in this presentation
+      (<a href="Stationary energy data collection.pdf">Stationary energy data collection.pdf</a>).
+    </p>
+  </section>
+
+  <!-- Other sectors (placeholder structure) -->
+  <section class="section">
+    <h2>Transportation</h2>
+    <p>Transportation emissions cover greenhouse gas emissions from the operation of vehicles. At the municipal level this includes municipal vehicle fleets, public transport systems, road infrastructure and mobility planning.</p>
+  </section>
+
+  <section class="section">
+    <h2>Waste</h2>
+    <p>Waste sector emissions include methane (CH₄) from the decomposition of organic waste in landfills and from wastewater treatment. Reducing waste through recycling, composting and waste prevention is a key mitigation strategy.</p>
+  </section>
+
+  <section class="section">
+    <h2>Industrial Processes and Product Use (IPPU)</h2>
+    <p>IPPU emissions come from chemical reactions in industrial processes (e.g. cement production, chemical manufacturing) and from the use of products containing greenhouse gases (e.g. refrigerants, solvents, plastics). Municipalities can influence IPPU emissions through procurement policies, industrial zoning and waste management.</p>
+  </section>
+
+  <section class="section">
+    <h2>Agriculture, Forestry and Other Land Use (AFOLU)</h2>
+    <p>AFOLU emissions include methane from livestock, nitrous oxide from agricultural soils, and emissions from deforestation, land-use change and forest management. Municipalities can support AFOLU mitigation through agricultural extension services, community forestry programs and sustainable land-use planning.</p>
+  </section>
+  <!-- Footer -->
+  <footer class="footer">
+    <p>Developed by <a href="https://gondwanagroup.co.za/" style="color:var(--primary);">Gondwana</a> with funding support from <a href="https://ukpact.co.uk" style="color:var(--primary);">UK PACT</a> &copy;2026</p>
+  </footer>
+
+</body>
+</html>

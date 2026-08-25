@@ -61,15 +61,14 @@ class KeyCard extends HTMLElement {
     const div = document.createElement(`div`);
     div.setAttribute(`class`,`track-card`);
     div.innerHTML = `
+      <a href="understand.html" class="inline-flex items-center gap-2 text-track top">
             <div class="track-card-image">
               <img src="assets/understand.jpg" loading="lazy">
               <div class="track-card-color-bar bg-track"></div>
             </div>
             <div class="track-card-content">
               <p class="text-xs font-semibold uppercase tracking-wider text-track">
-                <slot name="for">
-                For municipalities & districts
-                </slot>
+                <slot name="for"></slot>
               </p>
               <h3 class="text-xl font-bold leading-snug mt-3"><slot name="title">
                 Understand the Climate Change Act & Planning Framework
@@ -88,8 +87,11 @@ class KeyCard extends HTMLElement {
                 </slot>
                 </p>
               </div>
-              <a href="understand.html" class="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-track explore">
-                Explore this pathway
+              </div>
+            </div>
+            <div class="card-bottom">
+              <a data-id="arrow" href="understand.html" class="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-track explore">
+                Explore this guide
                 <span class="arrow">
                   <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" 
                     fill="none" stroke="currentColor" stroke-width="2" 
@@ -99,9 +101,13 @@ class KeyCard extends HTMLElement {
                     style="transform: translateY(5px);"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg>
                 </span>
               </a>
-            </div>`;
+            </div>
+          </div>
+        </a>
+      `;
       div.querySelector(`img`).setAttribute(`src`, this.getAttribute(`img`));
       div.querySelector(`a`).setAttribute(`href`, this.getAttribute(`href`));
+      div.querySelector(`a[data-id="arrow"]`).setAttribute(`href`, this.getAttribute(`href`));
       this.querySelectorAll("[slot]").forEach(s=>{
        // console.log(`KeyCard has child element: `, s);
        const slot = s.getAttribute(`slot`);
@@ -111,7 +117,7 @@ class KeyCard extends HTMLElement {
        } else {
         res.parentElement.replaceChild(s, res);
        }
-      });
+      }); // foreach [slot]
     this.appendChild(div);
   }
 }
