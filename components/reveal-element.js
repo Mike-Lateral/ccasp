@@ -80,10 +80,10 @@ class KeyCard extends HTMLElement {
               </p>
               <div class="mt-5 rounded-xl p-4 bg-track-soft key-takeaway">
                 <p class="text-xs uppercase tracking-wider text-muted-foreground">
-                  Key takeaway
+                  Resources
                 </p>
                 <p class="mt-1.5 text-sm"><slot name="takeaway">
-                  For anyone wanting a high-level understanding of how the Act works and how CCASP fits South Africa's climate action strategy.
+                  Links
                 </slot>
                 </p>
               </div>
@@ -91,7 +91,7 @@ class KeyCard extends HTMLElement {
             </div>
             <div class="card-bottom">
               <a data-id="arrow" href="understand.html" class="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-track explore">
-                Explore this guide
+                Explore
                 <span class="arrow">
                   <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" 
                     fill="none" stroke="currentColor" stroke-width="2" 
