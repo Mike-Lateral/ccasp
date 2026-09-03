@@ -82,9 +82,7 @@ class KeyCard extends HTMLElement {
                 <p class="text-xs uppercase tracking-wider text-muted-foreground">
                   Resources
                 </p>
-                <p class="mt-1.5 text-sm"><slot name="takeaway">
-                  Links
-                </slot>
+                <p class="mt-1.5 text-sm"><slot name="takeaway"></slot>
                 </p>
               </div>
               </div>
